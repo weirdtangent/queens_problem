@@ -1,0 +1,37 @@
+Adapted from reading "Algorithms" by Jeff Erickson
+freely available on http://jeffe.cs.illinois.edu/teaching/algorithms/
+
+n Queens Problem
+Section2.1, page 69-71
+
+Comparing to the wiki page on the "8 Queens Problem"
+https://en.wikipedia.org/wiki/Eight_queens_puzzle
+I can check that my implementation is finding the right number of solutions:
+
+$ target/release/queens_problem 4 | wc -l       
+2
+
+$ target/release/queens_problem 8 | wc -l 
+92
+
+$ target/release/queens_problem 10 | wc -l 
+724
+
+$ target/release/queens_problem 12 | wc -l 
+14200
+
+$ target/release/queens_problem 14 | wc -l 
+365596
+
+That last run of 14x14 taking about 15 seconds to run on my AWS ec2:
+$ time target/release/queens_problem 14 | tail -3 
+[14, 12, 10, 8, 2, 5, 3, 1, 7, 11, 13, 6, 4, 9]
+[14, 12, 10, 8, 2, 5, 3, 1, 9, 11, 13, 7, 4, 6]
+[14, 12, 10, 8, 3, 5, 2, 11, 1, 6, 13, 9, 7, 4]
+
+real    0m15.182s
+user    0m13.734s
+sys     0m5.616s
+
+Also, try running with the "show" parameter, for instance:
+$ target/release/queens_problem 4 show
