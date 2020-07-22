@@ -28,7 +28,7 @@ pub fn main() {
     place_queens(chessboard.clone(), 0, showboard);
 }
 
-fn show_chessboard(board: Vec<i8>, showboard: bool) {
+fn draw_board(board: Vec<i8>, showboard: bool) {
     let mut light: bool = true;
 
     if showboard {
@@ -67,7 +67,7 @@ fn draw_square(color: Colors, chesspiece: &str) {
 /// Section2.1, page 69-71
 fn place_queens(mut chessboard: Vec<i8>, row: usize, showboard: bool) {
     if row == chessboard.len() {
-        show_chessboard(chessboard.to_vec(), showboard);
+        draw_board(chessboard.to_vec(), showboard);
         return;
     }
     for column in 0..chessboard.len() {
